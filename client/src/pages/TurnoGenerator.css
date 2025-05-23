@@ -1,0 +1,54 @@
+.turno-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.logo {
+  width: 130px;
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.input-codigo {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.boton-turno {
+  background: linear-gradient(to right, #00c853, #aeea00);
+  color: black;
+  font-size: 18px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.boton-turno:hover {
+  transform: scale(1.05);
+}
+
+.enlace-qr {
+  margin-top: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #0044cc;
+  text-decoration: underline;
+}
