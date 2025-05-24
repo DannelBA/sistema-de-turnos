@@ -6,7 +6,7 @@ export function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/stva" />} />
+        <Route path="/" element={<Navigate to="/stva_Qr" />} />
         <Route path="/stva" element={<TurnoGenerator />} />
         <Route path="/stva_Qr" element={<TurnoGeneratorQr />} />
       </Routes>
