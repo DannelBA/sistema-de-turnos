@@ -33,7 +33,7 @@ def generar_turno(request):
 
     ya_en_fila = FilaVirtual.objects.filter(estudiante=estudiante).exists()
     if ya_en_fila:
-        return Response({"error": "Ya estás en la fila. Espera a ser atendido o eliminado."}, status=403)
+        return Response({"error": "Ya estás en la fila. Espera a ser atendido."}, status=403)
     
     hoy = datetime.now().strftime("%A").lower()  # 'monday', 'tuesday'...
     print("Día actual (hoy):", hoy)
@@ -47,5 +47,17 @@ def generar_turno(request):
     except:
         return Response({"error": "Este estudiante no puede reclamar hoy."}, status=403)
 
-    turno = FilaVirtual.objects.create(estudiante=estudiante)
-    return Response({"mensaje": "Turno generado exitosamente", "turno_id": turno.id})
+     # Obtener último número de turno
+    ultimo_turno = FilaVirtual.objects.order_by('turno').first()
+    nuevo_turno = 1 if not ultimo_turno else ultimo_turno.turno + 1
+
+    turno = FilaVirtual.objects.create(
+        estudiante=estudiante,
+        turno=nuevo_turno
+    )
+
+    return Response({
+        "mensaje": "Turno generado exitosamente",
+        "turno_id": turno.id,
+        "numero_turno": turno.turno
+    })

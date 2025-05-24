@@ -25,7 +25,9 @@ class BeneficiadoPorDia(models.Model):
         return f"{self.estudiante} - {self.dia_beneficiado}"
 
 class FilaVirtual(models.Model):
+    turno = models.IntegerField()
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+    
 
     def __str__(self):
-        return f"Fila Virtual - {self.estudiante}"
+        return f"Fila Virtual - {self.estudiante} - {self.turno}"

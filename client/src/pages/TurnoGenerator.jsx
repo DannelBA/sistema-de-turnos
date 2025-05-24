@@ -28,8 +28,8 @@ export function TurnoGenerator() {
       );
 
       Swal.fire({
-        title: "Turno generado",
-        text: response.data.mensaje,
+        title: response.data.mensaje,
+        text: "Tu turno es el: "+response.data.numero_turno,
         icon: "success",
         confirmButtonText: "OK",
       });
